@@ -4,20 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>2.1 - !Hola movida!</title>
+  <title>2.4 - Deberes</title>
 </head>
 <body>
   <div id="app">
-    <h1>{{ mensaje }}</h1>
+    <h1>Hola {{ mensaje }}</h1>
+    <input type="text" v-model="mensaje" placeholder="Escribe tu nombre">
+    <pre>
+      {{ $data }}
+    </pre>
   </div>
 </body>
 <script src="https://unpkg.com/vue"></script>
-<script>
-  new Vue({
-    el: '#app',
-    data: {
-      mensaje: '¡Hola Vue.js 2!'
-    }
-  });
-</script>
+<script type="text/javascript" src="main.js"></script>
 </html>
