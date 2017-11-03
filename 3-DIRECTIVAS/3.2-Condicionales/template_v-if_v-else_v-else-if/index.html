@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3.2 - Condicionales: v-else - v-else-if</title>
+</head>
+<body>
+  <div id="app">
+    <label><input type="number" v-model="edad"></label>
+    <template v-if="edad > 0 && edad < 18">
+      <h1>Soy menor de edad</h1>
+      <p>Este prohibe el acceso a menores de 18 años.</p>
+      <hr>
+      <small>Vuelve en unos años</small>
+    </template>
+    <template v-else-if="edad >= 18">
+      <h1>Soy mayor de edad</h1>
+      <p>Este permite el acceso a mayores de 18 años.</p>
+      <hr>
+      <small>Gracias por su visita</small>
+    </template>
+    <template v-else>
+      <h1>Introduce tu edad</h1>
+      <p>Este sitio necesita comprobar la mayoría de edad.</p>
+      <hr>
+      <small>Esperando...</small>
+    </template>
+    <pre> {{ $data }} </pre>
+  </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>
