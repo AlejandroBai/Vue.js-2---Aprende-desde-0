@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3.3 - Deberes</title>
+</head>
+<body>
+  <div id="app">
+    <template v-if="nombre && genero === 'hombre' || nombre && genero === 'mujer'">
+      <h1>¡Enhorabuena
+        <span v-show="genero == 'hombre'">{{ nombre }}, eres el mejor tipo del mundo!</span>
+        <span v-show="genero == 'mujer'">{{ nombre }}, eres la mejor tipa del mundo!</span>
+      </h1>
+      <h2>Estamos encantados de conocerte, {{ nombre }}</h2>
+    </template>
+    <template v-else-if="nombre && !genero">
+      <h1>Por favor introduce un género válido.</h1>
+      <p>Faltan datos</p>
+    </template>
+    <template v-else-if="genero && genero != 'mujer' && genero != 'hombre'">
+      <h1>Por favor introduce un género válido.</h1>
+      <p>Faltan datos</p>
+    </template>
+    <template v-else-if="!nombre && genero === 'mujer' || genero === 'hombre'">
+      <h1>Por favor introduce un nombre.</h1>
+      <p>Faltan datos</p>
+    </template>
+    <template v-else>
+      <h1>Introduce tu nombre y tu género</h1>
+      <p>Este sitio necesita que introduzcas los dos datos.</p>
+    </template>
+    <label for="nombre">Nombre </label><input id="nombre" type="text" v-model="nombre">
+    <label for="genero">Género (hombre / mujer) </label><input id="genero" type="text" v-model="genero">
+    <pre> {{ $data }} </pre>
+  </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>
