@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <title>6.6 - Deberes</title>
+</head>
+
+<body>
+  <div id="app" class="container">
+    <div class="row justify-content-center align-items-center mt-5">
+      <div>
+        <!-- Mostraremos un mensaje anterior a que los personajes tengan votos -->
+        <h3 class="mb-5" v-if="ganador.votos > 0">{{ ganador.nombre }} es el ser más fuerte del universo!</h3>
+        <h3 class="mb-5" v-else>¡Elige al ser más fuerte del universo!</h3>
+        <ul class="list-group" v-for="personaje in personajes">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="mr-4 badge badge-primary badge-pill">{{ personaje.votos }}</span>
+            {{ personaje.nombre}}
+            <button type="button" class="ml-4 btn btn-success" @click="personaje.votos++">VOTA</button>
+          </li>
+        </ul>
+        <input type="text" class="mt-4 p-4 form-control" placeholder="Añade un personaje..." v-model="nuevoPersonaje.nombre" @keyup.enter="insertarPersonaje">
+        <button type="button" class="my-4 btn btn-info btn-block" @click="insertarPersonaje">AÑADIR PERSONAJE</button>
+        <button type="button" class="btn btn-danger btn-block" @click="borrar">RESETEAR VOTOS</button>
+      </div>
+    </div>
+    <!-- <pre>{{ $data }}</pre> -->
+  </div>
+</body>
+<script src="https://vuejs.org/js/vue.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</script>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <title>7.2 - Filtros globales</title>
+</head>
+
+<body>
+  <div id="app" class="container">
+    <div class="row justify-content-center align-items-center mt-5">
+      <div>
+        <h2 align="center">Original: {{ mensaje }}</h2>
+        <h2 align="center">Filtrado: {{ mensaje | mayusculas | minusculas }}</h2>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://vuejs.org/js/vue.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</html>

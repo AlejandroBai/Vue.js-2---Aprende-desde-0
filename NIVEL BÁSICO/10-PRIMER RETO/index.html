@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+  <title>10 - Primer Reto</title>
+</head>
+
+<body>
+  <div id="app" class="container no-padding">
+    <div class="row justify-content-between mt-5">
+      <div class="filas filas-yo col-md-5 mb-5">
+          <img class="img" src="./1.jpg" alt="">
+          <div class="resultados">
+            <span class="notificacion">Victorias: {{ yo.victorias }}</span>
+            <span class="notificacion">Derrotas: {{ yo.derrotas }}</span>
+          </div>
+          <div class="barraSalud">
+            <div class="salud" :style="{width: yo.salud + '%'}">
+              <span class="notificacion">{{ yo.salud + '%'}}</span>
+            </div>
+          </div>
+      </div>
+      <div class="filas filas-monstruo col-md-5 mb-5">
+          <img class="img" src="./2.jpg" alt="">
+          <div class="resultados">
+            <span class="notificacion">Victorias: {{ monstruo.victorias }}</span>
+            <span class="notificacion">Derrotas: {{ monstruo.derrotas }}</span>
+          </div>
+          <div class="barraSalud">
+            <div class="salud" :style="{width: monstruo.salud + '%'}">
+              <span class="notificacion">{{ monstruo.salud + '%'}}</span>
+            </div>
+          </div>
+      </div>
+    </div>
+    <template v-if="!nuevaPartida">
+      <div class="filas filas-botones row justify-content-around mt-5">
+        <button class="btn btn-light" type="button" @click="nuevaPartida = !nuevaPartida">Nueva partida</button>
+      </div>
+    </template>
+    <template v-if="nuevaPartida">
+      <div class="filas filas-botones row justify-content-around mt-5">
+        <button class="btn btn-info" @click="ataque">Ataque</button>
+        <button class="btn btn-danger" @click="ataqueEspecial" :disabled="desactivado">{{ textoBotonAtaqueEspecial }}</button>
+        <button class="btn btn-success" @click="recuperarSalud">Recuperar salud</button>
+        <button class="btn btn-light" @click="rendirse">Rendirse</button>
+      </div>
+      <div class="filas filas-lista row mt-5">
+        <ul class="list-group">
+          <li  class="list-group-item" v-for="ataque in funcionamiento">
+            {{ ataque }}
+          </li>
+        </ul>
+      </div>
+    </template>
+    <!-- <pre>{{ $data }}</pre> -->
+  </div>
+</body>
+<script src="https://vuejs.org/js/vue.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</html>
