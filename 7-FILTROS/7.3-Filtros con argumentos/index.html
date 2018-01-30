@@ -13,14 +13,12 @@
   <div id="app" class="container">
     <div class="row justify-content-center align-items-center mt-5">
       <div>
-        <ul class="list-group" v-for="cita in citas">
-          <li class="list-group-item"> {{ cita.cita }} {{ cita.autor }}</li>
-        </ul>
+        <h1>{{ mensaje | saludo('Álex', pregunta) }}</h1>
       </div>
     </div>
   </div>
 </body>
-<script src="https://unpkg.com/vue"></script>
+<script src="https://vuejs.org/js/vue.js"></script>
 <script type="text/javascript" src="main.js"></script>
 
 </html>
